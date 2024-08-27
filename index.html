@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
@@ -8,357 +9,368 @@
 </head>
 
 <body>
-<!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <div class="navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item mx-3">
-                    <a class="nav-link" href="#homeSection" onclick="showSection('homeSection')">Home</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link" href="#customerSection" onclick="showSection('customerSection')">Customer</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link" href="#itemSection" onclick="showSection('itemSection')">Item</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link" href="#placeOrderSection" onclick="showSection('placeOrderSection')">Place
-                        Order</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link" href="#orderDetailsSection" onclick="showSection('orderDetailsSection')">Order
-                        Details</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- Main Content -->
-<main class="container-fluid">
-
-    <!-- Home -->
-    <section id="homeSection" class="container-fluid my-5">
-
-        <div class="d-flex justify-content-center">
-
-            <!-- Customer Count -->
-            <div class="col-3 m-5">
-                <div class="card text-center shadow-lg border-light rounded">
-                    <div class="card-body">
-                        <h3 class="card-title mb-3">Customer Count</h3>
-                        <h3 id="customerCount" class="card-text display-5">00</h3>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Item Count -->
-            <div class="col-3 m-5">
-                <div class="card text-center shadow-lg border-light rounded">
-                    <div class="card-body">
-                        <h3 class="card-title mb-3">Item Count</h3>
-                        <h3 id="itemCount" class="card-text display-5">00</h3>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Order Count -->
-            <div class="col-3 m-5">
-                <div class="card text-center shadow-lg border-light rounded">
-                    <div class="card-body">
-                        <h3 class="card-title mb-3">Order Count</h3>
-                        <h3 id="orderCount" class="card-text display-5">00</h3>
-                    </div>
-                </div>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#homeSection" onclick="showSection('homeSection')">Home</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#customerSection"
+                            onclick="showSection('customerSection')">Customer</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#itemSection" onclick="showSection('itemSection')">Item</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#placeOrderSection" onclick="showSection('placeOrderSection')">Place
+                            Order</a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link" href="#orderDetailsSection"
+                            onclick="showSection('orderDetailsSection')">Order
+                            Details</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </section>
+    </nav>
 
-    <!-- Customer Management -->
-    <section id="customerSection" style="display: none;">
-        <h1 class="text-center fw-bold m-4">Customer Management</h1>
+    <!-- Main Content -->
+    <main class="container-fluid">
 
-        <div class="row">
+        <!-- Home -->
+        <section id="homeSection" class="container-fluid my-5">
 
-            <!-- Customer Table -->
-            <div class="col-6 p-0 m-3 ms-5 shadow-lg border-light rounded">
-                <div style="max-height: 400px; overflow-y: auto;">
-                    <table class="table table-bordered table-striped">
-                        <thead class="table-dark">
-                        <tr>
-                            <th scope="col" class="w-25">ID</th>
-                            <th scope="col" class="w-25">Name</th>
-                            <th scope="col" class="w-25">Address</th>
-                            <th scope="col" class="w-25">Salary</th>
-                        </tr>
-                        </thead>
-                        <tbody id="customerTable"></tbody>
-                    </table>
-                </div>
-            </div>
+            <div class="d-flex justify-content-center">
 
-            <!-- Customer Form -->
-            <div class="col-5 p-5 m-3 shadow-lg border-light rounded">
-                <form>
-                    <div class="mb-2">
-                        <label for="txtSearchCustomer" class="form-label fw-bold">Search Customer</label>
-                        <div class="d-flex">
-                            <input class="form-control me-2" id="txtSearchCustomer" type="text">
-                            <button class="btn btn-outline-success" id="btnSearchCustomer" type="button">Search</button>
+                <!-- Customer Count -->
+                <div class="col-3 m-5">
+                    <div class="card text-center shadow-lg border-light rounded">
+                        <div class="card-body">
+                            <h3 class="card-title mb-3">Customer Count</h3>
+                            <h3 id="customerCount" class="card-text display-5">00</h3>
                         </div>
                     </div>
-                    <div class="mb-2">
-                        <label for="txtCustomerId" class="form-label fw-bold">Customer ID</label>
-                        <input class="form-control" id="txtCustomerId" type="text" disabled>
-                        <div id="txtCusIdError" class="text-danger mt-1"></div>
-                    </div>
-                    <div class="mb-2">
-                        <label for="txtCustomerName" class="form-label fw-bold">Customer Name</label>
-                        <input class="form-control" id="txtCustomerName" type="text">
-                        <div id="txtCusNameError" class="text-danger mt-1"></div>
-                    </div>
-                    <div class="mb-2">
-                        <label for="txtCustomerAddress" class="form-label fw-bold">Customer Address</label>
-                        <input class="form-control" id="txtCustomerAddress" type="text">
-                        <div id="txtCusAddressError" class="text-danger mt-1"></div>
-                    </div>
-                    <div class="mb-2">
-                        <label for="txtCustomerSalary" class="form-label fw-bold">Customer Salary</label>
-                        <input class="form-control" id="txtCustomerSalary" type="number">
-                        <div id="txtCusSalaryError" class="text-danger mt-1"></div>
-                    </div>
-                    <div class="d-flex justify-content-center mt-4">
-                        <button class="btn btn-outline-primary mx-2 w-100" id="btnSaveCustomer" type="button">Save
-                        </button>
-                        <button class="btn btn-outline-warning mx-2 w-100" id="btnUpdateCustomer" type="button">Update
-                        </button>
-                        <button class="btn btn-outline-danger mx-2 w-100" id="btnDeleteCustomer" type="button">Delete
-                        </button>
-                        <button class="btn btn-outline-secondary mx-2 w-100" id="btnLoadAllCustomers" type="button">Load
-                            All
-                        </button>
-                        <button class="btn btn-outline-info mx-2 w-100" id="btnResetCustomer" type="button">Reset
-                        </button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Item Management -->
-    <section id="itemSection" style="display: none;">
-        <h1 class="text-center fw-bold m-4">Item Management</h1>
-
-        <div class="row">
-
-            <!-- Item Table -->
-            <div class="col-6 p-0 m-3 ms-5 shadow-lg border-light rounded">
-                <div style="max-height: 400px; overflow-y: auto;">
-                    <table class="table table-bordered table-striped">
-                        <thead class="table-dark">
-                        <tr>
-                            <th scope="col" class="w-25">Code</th>
-                            <th scope="col" class="w-25">Description</th>
-                            <th scope="col" class="w-25">Unit Price</th>
-                            <th scope="col" class="w-25">Qty On Hand</th>
-                        </tr>
-                        </thead>
-                        <tbody id="itemTable"></tbody>
-                    </table>
                 </div>
-            </div>
 
-            <!-- Item Form -->
-            <div class="col-5 p-5 m-3 shadow-lg border-light rounded">
-                <form>
-                    <div class="mb-2">
-                        <label for="txtSearchItem" class="form-label fw-bold">Search Item</label>
-                        <div class="d-flex">
-                            <input class="form-control me-2" id="txtSearchItem" type="text">
-                            <button class="btn btn-outline-success" id="btnSearchItem" type="button">Search</button>
+                <!-- Item Count -->
+                <div class="col-3 m-5">
+                    <div class="card text-center shadow-lg border-light rounded">
+                        <div class="card-body">
+                            <h3 class="card-title mb-3">Item Count</h3>
+                            <h3 id="itemCount" class="card-text display-5">00</h3>
                         </div>
                     </div>
-                    <div class="mb-2">
-                        <label for="txtItemCode" class="form-label fw-bold">Item Code</label>
-                        <input class="form-control" id="txtItemCode" type="text" disabled>
-                        <div id="txtItemCodeError" class="text-danger mt-1"></div>
+                </div>
+
+                <!-- Order Count -->
+                <div class="col-3 m-5">
+                    <div class="card text-center shadow-lg border-light rounded">
+                        <div class="card-body">
+                            <h3 class="card-title mb-3">Order Count</h3>
+                            <h3 id="orderCount" class="card-text display-5">00</h3>
+                        </div>
                     </div>
-                    <div class="mb-2">
-                        <label for="txtItemDescription" class="form-label fw-bold">Item Description</label>
-                        <input class="form-control" id="txtItemDescription" type="text">
-                        <div id="txtItemDescriptionError" class="text-danger mt-1"></div>
-                    </div>
-                    <div class="mb-2">
-                        <label for="txtItemUnitPrice" class="form-label fw-bold">Unit Price</label>
-                        <input class="form-control" id="txtItemUnitPrice" type="number">
-                        <div id="txtItemUnitPriceError" class="text-danger mt-1"></div>
-                    </div>
-                    <div class="mb-2">
-                        <label for="txtItemQtyOnHand" class="form-label fw-bold">Qty On Hand</label>
-                        <input class="form-control" id="txtItemQtyOnHand" type="number">
-                        <div id="txtItemQtyOnHandError" class="text-danger mt-1"></div>
-                    </div>
-                    <div class="d-flex justify-content-center mt-4">
-                        <button class="btn btn-outline-primary mx-2 w-100" id="btnSaveItem" type="button">Save</button>
-                        <button class="btn btn-outline-warning mx-2 w-100" id="btnUpdateItem" type="button">Update
-                        </button>
-                        <button class="btn btn-outline-danger mx-2 w-100" id="btnDeleteItem" type="button">Delete
-                        </button>
-                        <button class="btn btn-outline-secondary mx-2 w-100" id="btnLoadAllItems" type="button">Load
-                            All
-                        </button>
-                        <button class="btn btn-outline-info mx-2 w-100" id="btnResetItem" type="button">Reset</button>
-                    </div>
-                </form>
+                </div>
             </div>
+        </section>
 
-        </div>
-    </section>
+        <!-- Customer Management -->
+        <section id="customerSection" style="display: none;">
+            <h1 class="text-center fw-bold m-4">Customer Management</h1>
 
-    <!-- Place Order -->
-    <section id="placeOrderSection" style="display: none;">
-        <h1 class="text-center fw-bold mt-4">Place Order</h1>
+            <div class="row">
 
-        <div class="row justify-content-center">
-
-            <!-- Customer Details -->
-            <div class="col-3 p-5 m-5 shadow-lg border-light rounded">
-                <form>
-                    <h3 class="text-center mb-4">Customer Details</h3>
-                    <div class="mb-2">
-                        <label for="txtPlaceOrderOrderId" class="form-label fw-bold">Order ID</label>
-                        <input class="form-control" id="txtPlaceOrderOrderId" type="text" disabled>
+                <!-- Customer Table -->
+                <div class="col-6 p-0 m-3 ms-5 shadow-lg border-light rounded">
+                    <div style="max-height: 400px; overflow-y: auto;">
+                        <table class="table table-bordered table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col" class="w-25">ID</th>
+                                    <th scope="col" class="w-25">Name</th>
+                                    <th scope="col" class="w-25">Address</th>
+                                    <th scope="col" class="w-25">Salary</th>
+                                </tr>
+                            </thead>
+                            <tbody id="customerTable"></tbody>
+                        </table>
                     </div>
-                    <div class="mb-2">
-                        <label for="txtPlaceOrderCustomerId" class="form-label fw-bold">Customer ID</label>
-                        <select class="form-control" id="txtPlaceOrderCustomerId"
+                </div>
+
+                <!-- Customer Form -->
+                <div class="col-5 p-5 m-3 shadow-lg border-light rounded">
+                    <form>
+                        <div class="mb-2">
+                            <label for="txtSearchCustomer" class="form-label fw-bold">Search Customer</label>
+                            <div class="d-flex">
+                                <input class="form-control me-2" id="txtSearchCustomer" type="text">
+                                <button class="btn btn-outline-success" id="btnSearchCustomer"
+                                    type="button">Search</button>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtCustomerId" class="form-label fw-bold">Customer ID</label>
+                            <input class="form-control" id="txtCustomerId" type="text" disabled>
+                            <div id="txtCusIdError" class="text-danger mt-1"></div>
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtCustomerName" class="form-label fw-bold">Customer Name</label>
+                            <input class="form-control" id="txtCustomerName" type="text">
+                            <div id="txtCusNameError" class="text-danger mt-1"></div>
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtCustomerAddress" class="form-label fw-bold">Customer Address</label>
+                            <input class="form-control" id="txtCustomerAddress" type="text">
+                            <div id="txtCusAddressError" class="text-danger mt-1"></div>
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtCustomerSalary" class="form-label fw-bold">Customer Salary</label>
+                            <input class="form-control" id="txtCustomerSalary" type="number">
+                            <div id="txtCusSalaryError" class="text-danger mt-1"></div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            <button class="btn btn-outline-primary mx-2 w-100" id="btnSaveCustomer" type="button">Save
+                            </button>
+                            <button class="btn btn-outline-warning mx-2 w-100" id="btnUpdateCustomer"
+                                type="button">Update
+                            </button>
+                            <button class="btn btn-outline-danger mx-2 w-100" id="btnDeleteCustomer"
+                                type="button">Delete
+                            </button>
+                            <button class="btn btn-outline-secondary mx-2 w-100" id="btnLoadAllCustomers"
+                                type="button">Load
+                                All
+                            </button>
+                            <button class="btn btn-outline-info mx-2 w-100" id="btnResetCustomer" type="button">Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Item Management -->
+        <section id="itemSection" style="display: none;">
+            <h1 class="text-center fw-bold m-4">Item Management</h1>
+
+            <div class="row">
+
+                <!-- Item Table -->
+                <div class="col-6 p-0 m-3 ms-5 shadow-lg border-light rounded">
+                    <div style="max-height: 400px; overflow-y: auto;">
+                        <table class="table table-bordered table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col" class="w-25">Code</th>
+                                    <th scope="col" class="w-25">Description</th>
+                                    <th scope="col" class="w-25">Unit Price</th>
+                                    <th scope="col" class="w-25">Qty On Hand</th>
+                                </tr>
+                            </thead>
+                            <tbody id="itemTable"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Item Form -->
+                <div class="col-5 p-5 m-3 shadow-lg border-light rounded">
+                    <form>
+                        <div class="mb-2">
+                            <label for="txtSearchItem" class="form-label fw-bold">Search Item</label>
+                            <div class="d-flex">
+                                <input class="form-control me-2" id="txtSearchItem" type="text">
+                                <button class="btn btn-outline-success" id="btnSearchItem" type="button">Search</button>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtItemCode" class="form-label fw-bold">Item Code</label>
+                            <input class="form-control" id="txtItemCode" type="text" disabled>
+                            <div id="txtItemCodeError" class="text-danger mt-1"></div>
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtItemDescription" class="form-label fw-bold">Item Description</label>
+                            <input class="form-control" id="txtItemDescription" type="text">
+                            <div id="txtItemDescriptionError" class="text-danger mt-1"></div>
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtItemUnitPrice" class="form-label fw-bold">Unit Price</label>
+                            <input class="form-control" id="txtItemUnitPrice" type="number">
+                            <div id="txtItemUnitPriceError" class="text-danger mt-1"></div>
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtItemQtyOnHand" class="form-label fw-bold">Qty On Hand</label>
+                            <input class="form-control" id="txtItemQtyOnHand" type="number">
+                            <div id="txtItemQtyOnHandError" class="text-danger mt-1"></div>
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            <button class="btn btn-outline-primary mx-2 w-100" id="btnSaveItem"
+                                type="button">Save</button>
+                            <button class="btn btn-outline-warning mx-2 w-100" id="btnUpdateItem" type="button">Update
+                            </button>
+                            <button class="btn btn-outline-danger mx-2 w-100" id="btnDeleteItem" type="button">Delete
+                            </button>
+                            <button class="btn btn-outline-secondary mx-2 w-100" id="btnLoadAllItems" type="button">Load
+                                All
+                            </button>
+                            <button class="btn btn-outline-info mx-2 w-100" id="btnResetItem"
+                                type="button">Reset</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Place Order -->
+        <section id="placeOrderSection" style="display: none;">
+            <h1 class="text-center fw-bold mt-4">Place Order</h1>
+
+            <div class="row justify-content-center">
+
+                <!-- Customer Details -->
+                <div class="col-3 p-5 m-5 shadow-lg border-light rounded">
+                    <form>
+                        <h3 class="text-center mb-4">Customer Details</h3>
+                        <div class="mb-2">
+                            <label for="txtPlaceOrderOrderId" class="form-label fw-bold">Order ID</label>
+                            <input class="form-control" id="txtPlaceOrderOrderId" type="text" disabled>
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtPlaceOrderCustomerId" class="form-label fw-bold">Customer ID</label>
+                            <select class="form-control" id="txtPlaceOrderCustomerId"
                                 onchange="loadCustomerDetailsToInputs()"></select>
-                    </div>
-                    <div class="mb-2">
-                        <label for="txtPlaceOrderCustomerName" class="form-label fw-bold">Customer Name</label>
-                        <input class="form-control" id="txtPlaceOrderCustomerName" type="text">
-                    </div>
-                    <div class="mb-2">
-                        <label for="txtPlaceOrderCustomerAddress" class="form-label fw-bold">Customer Address</label>
-                        <input class="form-control" id="txtPlaceOrderCustomerAddress" type="text">
-                    </div>
-                    <div class="mb-2">
-                        <label for="txtPlaceOrderCustomerSalary" class="form-label fw-bold">Customer Salary</label>
-                        <input class="form-control" id="txtPlaceOrderCustomerSalary" type="text">
-                    </div>
-                </form>
-            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtPlaceOrderCustomerName" class="form-label fw-bold">Customer Name</label>
+                            <input class="form-control" id="txtPlaceOrderCustomerName" type="text">
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtPlaceOrderCustomerAddress" class="form-label fw-bold">Customer
+                                Address</label>
+                            <input class="form-control" id="txtPlaceOrderCustomerAddress" type="text">
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtPlaceOrderCustomerSalary" class="form-label fw-bold">Customer Salary</label>
+                            <input class="form-control" id="txtPlaceOrderCustomerSalary" type="text">
+                        </div>
+                    </form>
+                </div>
 
-            <!-- Item Details -->
-            <div class="col-3 p-5 m-5 shadow-lg border-light rounded">
-                <form>
-                    <h3 class="text-center mb-4">Item Details</h3>
-                    <div class="mb-2">
-                        <label for="txtPlaceOrderItemCode" class="form-label fw-bold">Item Code</label>
-                        <select class="form-control" id="txtPlaceOrderItemCode"
+                <!-- Item Details -->
+                <div class="col-3 p-5 m-5 shadow-lg border-light rounded">
+                    <form>
+                        <h3 class="text-center mb-4">Item Details</h3>
+                        <div class="mb-2">
+                            <label for="txtPlaceOrderItemCode" class="form-label fw-bold">Item Code</label>
+                            <select class="form-control" id="txtPlaceOrderItemCode"
                                 onchange="loadItemDetailsToInputs()"></select>
-                    </div>
-                    <div class="mb-2">
-                        <label for="txtPlaceOrderItemDescription" class="form-label fw-bold">Item Description</label>
-                        <input class="form-control" id="txtPlaceOrderItemDescription" type="text">
-                    </div>
-                    <div class="mb-2">
-                        <label for="txtPlaceOrderItemUnitPrice" class="form-label fw-bold">Unit Price</label>
-                        <input class="form-control" id="txtPlaceOrderItemUnitPrice" type="text">
-                    </div>
-                    <div class="mb-2">
-                        <label for="txtPlaceOrderItemQtyOnHand" class="form-label fw-bold">Qty On Hand</label>
-                        <input class="form-control" id="txtPlaceOrderItemQtyOnHand" type="text">
-                    </div>
-                </form>
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtPlaceOrderItemDescription" class="form-label fw-bold">Item
+                                Description</label>
+                            <input class="form-control" id="txtPlaceOrderItemDescription" type="text">
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtPlaceOrderItemUnitPrice" class="form-label fw-bold">Unit Price</label>
+                            <input class="form-control" id="txtPlaceOrderItemUnitPrice" type="text">
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtPlaceOrderItemQtyOnHand" class="form-label fw-bold">Qty On Hand</label>
+                            <input class="form-control" id="txtPlaceOrderItemQtyOnHand" type="text">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Payment Details -->
+                <div class="col-3 p-5 m-5 shadow-lg border-light rounded">
+                    <form>
+                        <h3 class="text-center mb-4">Payment Details</h3>
+                        <div class="mb-2">
+                            <label for="txtPlaceOrderBuyQty" class="form-label fw-bold">Buy Qty</label>
+                            <input class="form-control" id="txtPlaceOrderBuyQty" type="number">
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            <button class="btn btn-outline-primary mx-2" id="btnAddToCart" type="button">Add to Cart
+                            </button>
+                        </div>
+                        <div class="mb-2">
+                            <label for="txtPlaceOrderTotal" class="form-label fw-bold">Total</label>
+                            <input class="form-control" id="txtPlaceOrderTotal" type="number" disabled>
+                        </div>
+                        <div class="d-flex justify-content-center mt-4">
+                            <button class="btn btn-outline-success mx-2" id="btnPlaceOrder" type="button">Place Order
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
 
-            <!-- Payment Details -->
-            <div class="col-3 p-5 m-5 shadow-lg border-light rounded">
-                <form>
-                    <h3 class="text-center mb-4">Payment Details</h3>
-                    <div class="mb-2">
-                        <label for="txtPlaceOrderBuyQty" class="form-label fw-bold">Buy Qty</label>
-                        <input class="form-control" id="txtPlaceOrderBuyQty" type="number">
-                    </div>
-                    <div class="d-flex justify-content-center mt-4">
-                        <button class="btn btn-outline-primary mx-2" id="btnAddToCart" type="button">Add to Cart
-                        </button>
-                    </div>
-                    <div class="mb-2">
-                        <label for="txtPlaceOrderTotal" class="form-label fw-bold">Total</label>
-                        <input class="form-control" id="txtPlaceOrderTotal" type="number" disabled>
-                    </div>
-                    <div class="d-flex justify-content-center mt-4">
-                        <button class="btn btn-outline-success mx-2" id="btnPlaceOrder" type="button">Place Order
-                        </button>
-                    </div>
-                </form>
+            <!-- Add to Cart -->
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col" style="width: 200px">Customer ID</th>
+                                <th scope="col" style="width: 200px">Item Description</th>
+                                <th scope="col" style="width: 200px">Unit Price</th>
+                                <th scope="col" style="width: 200px">Buy Qty</th>
+                                <th scope="col" style="width: 200px">Total</th>
+                                <th scope="col" style="width: 200px">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderTable"></tbody>
+                    </table>
+                </div>
             </div>
 
-        </div>
+        </section>
 
-        <!-- Add to Cart -->
-        <div class="row justify-content-center">
-            <div class="col-10">
-                <table class="table table-bordered table-striped">
-                    <thead class="table-dark">
-                    <tr>
-                        <th scope="col" style="width: 200px">Customer ID</th>
-                        <th scope="col" style="width: 200px">Item Description</th>
-                        <th scope="col" style="width: 200px">Unit Price</th>
-                        <th scope="col" style="width: 200px">Buy Qty</th>
-                        <th scope="col" style="width: 200px">Total</th>
-                        <th scope="col" style="width: 200px">Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody id="orderTable"></tbody>
-                </table>
+        <!-- Order Details -->
+        <section id="orderDetailsSection" style="display: none;">
+            <h1 class="text-center fw-bold mt-4">Order Details</h1>
+
+            <div class="row justify-content-center">
+                <div class="col-10 mt-5">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Order ID</th>
+                                <th scope="col">Customer ID</th>
+                                <th scope="col">Item Code</th>
+                                <th scope="col">Buy Qty</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderDetailsTable"></tbody>
+                    </table>
+                </div>
             </div>
-        </div>
+        </section>
 
-    </section>
+    </main>
 
-    <!-- Order Details -->
-    <section id="orderDetailsSection" style="display: none;">
-        <h1 class="text-center fw-bold mt-4">Order Details</h1>
-
-        <div class="row justify-content-center">
-            <div class="col-10 mt-5">
-                <table class="table table-bordered table-striped">
-                    <thead class="table-dark">
-                    <tr>
-                        <th scope="col">Order ID</th>
-                        <th scope="col">Customer ID</th>
-                        <th scope="col">Item Code</th>
-                        <th scope="col">Buy Qty</th>
-                        <th scope="col">Total</th>
-                    </tr>
-                    </thead>
-                    <tbody id="orderDetailsTable"></tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-</main>
-
-<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-<script>
-    function showSection(sectionId) {
-        $('#homeSection, #customerSection, #itemSection, #placeOrderSection, #orderDetailsSection').hide();
-        $('#' + sectionId).show();
-    }
-</script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="controllers/HomeController.js"></script>
-<script src="controllers/CustomerController.js"></script>
-<script src="controllers/ItemController.js"></script>
-<script src="controllers/PlaceOrderController.js"></script>
-<script src="util/Notifications.js"></script>
-<script src="validations/CustomerValidation.js"></script>
-<script src="validations/ItemValidation.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        function showSection(sectionId) {
+            $('#homeSection, #customerSection, #itemSection, #placeOrderSection, #orderDetailsSection').hide();
+            $('#' + sectionId).show();
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="controllers/HomeController.js"></script>
+    <script src="controllers/CustomerController.js"></script>
+    <script src="controllers/ItemController.js"></script>
+    <script src="controllers/PlaceOrderController.js"></script>
+    <script src="util/Notifications.js"></script>
+    <script src="validations/CustomerValidation.js"></script>
+    <script src="validations/ItemValidation.js"></script>
 </body>
+
 </html>

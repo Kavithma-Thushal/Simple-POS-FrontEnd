@@ -1,9 +1,3 @@
-/**
- * @author : Kavithma Thushal
- * @project : Spring-Boot-POS
- * @since : 7:05 AM - 6/18/2024
- **/
-
 function itemValidation() {
 
     // Check Inputs For Item Validation

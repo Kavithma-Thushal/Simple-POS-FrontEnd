@@ -1,4 +1,4 @@
-const placeOrderUrl = "http://localhost:8080/api/v1/orders";
+const placeOrderUrl = "http://localhost:8080/api/v1/order";
 
 let cart = [];
 
